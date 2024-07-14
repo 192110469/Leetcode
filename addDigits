@@ -1,0 +1,11 @@
+class Solution {
+    public int addDigits(int num) {
+        int dig;
+        while(num/10!=0){
+            dig=num%10;
+            num/=10;
+            num+=dig;
+        }
+        return num;
+    }
+}
