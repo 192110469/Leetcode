@@ -1,0 +1,13 @@
+class Solution {
+    public void rotate(int[] nums, int k) {
+        int out[]=new int[nums.length];
+        int len=nums.length;
+        k=k%len;
+        for(int i=0;i<len;i++){
+            out[(i+k)%len]=nums[i];
+        }
+        for(int m=0;m<nums.length;m++){
+            nums[m]=out[m];
+        }
+    }
+}
