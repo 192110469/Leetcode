@@ -1,0 +1,11 @@
+class Solution {
+    public double trimMean(int[] arr) {
+        int tot=0;
+        int a=arr.length/20;
+        Arrays.sort(arr);
+        for(int i=a;i<arr.length-a;i++){
+            tot+=arr[i];
+        }
+        return (double)tot/(arr.length-2*a);
+    }
+}
