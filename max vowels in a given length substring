@@ -1,0 +1,27 @@
+class Solution {
+    public int maxVowels(String s, int k) {
+        int vowels = 0;
+        char[] letters = s.toCharArray();
+        for (int i = 0; i < k; i++) {
+            vowels += oneIfVowel(letters[i]);
+        }
+        int maxVowels = vowels;
+        for (int i = k; i < letters.length; i++) {
+            vowels = vowels - oneIfVowel(letters[i - k]) + oneIfVowel(letters[i]);
+            if (vowels > maxVowels) {
+                maxVowels = vowels;
+            }
+        }
+        System.gc();
+        return maxVowels;
+    }
+
+    private int oneIfVowel(char c) {
+        return isVowel(c) ? 1 : 0;
+    }
+ 
+    private boolean isVowel(char c) {
+        return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
+    }
+
+}
